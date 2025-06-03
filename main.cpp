@@ -2,15 +2,14 @@
 #include <cstdlib>
 #include <ctime>
 
-
 int main()
 {
     using namespace std;
     // Initialiser le générateur de nombres aléatoires
     srand(time(nullptr));
 
-    std::string welcometext = "Bienvenue dans le jeu du Nombre Mystère !\n"
-                              "Devinez un nombre entre 1 et 100 :\n";
+    string welcometext = "Bienvenue dans le jeu du Nombre Mystère !\n"
+                         "Devinez un nombre entre 1 et 100 :\n";
 
     int mysteryNumber = rand() % 100 + 1;
     int guess = 0;
