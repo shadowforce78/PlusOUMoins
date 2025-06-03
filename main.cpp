@@ -2,9 +2,10 @@
 #include <cstdlib>
 #include <ctime>
 
+
 int main()
 {
-    namespace std = std;
+    using namespace std;
     // Initialiser le générateur de nombres aléatoires
     srand(time(nullptr));
 
@@ -15,38 +16,38 @@ int main()
     int guess = 0;
     int attempts = 0;
 
-    std::string tooLowText = "→ Trop petit !\n";
-    std::string tooHighText = "→ Trop grand !\n";
-    std::string guessText = "Votre proposition : ";
-    std::string errorText = "Erreur !\n";
+    string tooLowText = "→ Trop petit !\n";
+    string tooHighText = "→ Trop grand !\n";
+    string guessText = "Votre proposition : ";
+    string errorText = "Erreur !\n";
 
-    std::cout << welcometext;
+    cout << welcometext;
 
     do
     {
         attempts++;
-        std::cout << guessText;
-        std::cin >> guess;
+        cout << guessText;
+        cin >> guess;
 
         if (guess > 100 || guess < 1)
         {
-            std::cout << errorText;
+            cout << errorText;
             return 1;
         }
 
         if (guess > mysteryNumber)
         {
-            std::cout << tooHighText;
+            cout << tooHighText;
         }
         else if (guess < mysteryNumber)
         {
-            std::cout << tooLowText;
+            cout << tooLowText;
         }
 
     } while (guess != mysteryNumber);
 
     // Afficher le message de victoire avec le nombre d'essais
-    std::cout << "Bravo ! Vous avez trouvé en " << attempts << " essais.\n";
+    cout << "Bravo ! Vous avez trouvé en " << attempts << " essais.\n";
 
     return 0;
 }
