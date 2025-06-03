@@ -20,33 +20,33 @@ int main()
     string guessText = "Votre proposition : ";
     string errorText = "Erreur !\n";
 
-    cout << welcometext;
+    fprintf(stdout, "%s", welcometext.c_str());
 
     do
     {
         attempts++;
-        cout << guessText;
-        cin >> guess;
+        fprintf(stdout, "%s", guessText.c_str());
+        fscanf(stdin, "%d", &guess);
 
         if (guess > 100 || guess < 1)
         {
-            cout << errorText;
+            fprintf(stderr, "%s", errorText.c_str());
             return 1;
         }
 
         if (guess > mysteryNumber)
         {
-            cout << tooHighText;
+            fprintf(stderr, "%s", tooHighText.c_str());
         }
         else if (guess < mysteryNumber)
         {
-            cout << tooLowText;
+            fprintf(stderr, "%s", tooLowText.c_str());
         }
 
     } while (guess != mysteryNumber);
 
     // Afficher le message de victoire avec le nombre d'essais
-    cout << "Bravo ! Vous avez trouvé en " << attempts << " essais.\n";
+    fprintf(stdout, "Bravo ! Vous avez trouvé en %d essais.\n", attempts);
 
     return 0;
 }
