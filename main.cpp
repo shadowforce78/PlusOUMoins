@@ -4,13 +4,14 @@
 
 int main()
 {
+    namespace std = std;
     // Initialiser le générateur de nombres aléatoires
-    std::srand(std::time(nullptr));
+    srand(time(nullptr));
 
     std::string welcometext = "Bienvenue dans le jeu du Nombre Mystère !\n"
                               "Devinez un nombre entre 1 et 100 :\n";
 
-    int mysteryNumber = std::rand() % 100 + 1;
+    int mysteryNumber = rand() % 100 + 1;
     int guess = 0;
     int attempts = 0;
 
@@ -20,8 +21,9 @@ int main()
     std::string errorText = "Erreur !\n";
 
     std::cout << welcometext;
-    
-    do {
+
+    do
+    {
         attempts++;
         std::cout << guessText;
         std::cin >> guess;
